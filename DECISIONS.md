@@ -1,29 +1,19 @@
-# Recommendation: readiness first, sourcing when needed
+# Revised Concept 02: a demand-to-commitment network
 
-Keep the original marketplace as Concept 01. Use Concept 02 to test whether an OEM planner benefits from connecting a build requirement, a supplier readiness signal and a specific response.
+The central problem is shared inventory risk: a supplier may hesitate to commit material before a buyer commits demand, while a buyer may hesitate to hold excess parts. Earlier information can help, but a nonbinding forecast alone does not transfer that risk.
 
-| Direction | Assessment |
-| --- | --- |
-| Marketplace alone | Clear value for finding stock, but substantial overlap with established aerospace sourcing platforms. A cleaner interface does not establish a defensible advantage. |
-| Full ERP replacement | Much too broad for the initial pilot. It introduces manufacturing, finance, quality and purchasing responsibilities. |
-| OEM delivery/readiness analytics | A focused problem: which supplier commitments expose a build, and what changed? Depends on usable data and demonstrating better decisions or predictions. |
-| Readiness linked to sourcing | Recommended concept to test. Keep the planning problem primary and present sourcing for identified shortages. Existing vendors overlap with the broad combination. |
+SkySupply's proposed workflow connects:
 
-The airline unable to obtain a bolt and the OEM waiting for upstream material are connected but distinct needs. Available stock can help an immediate shortage. Earlier readiness signals can help a planner order, escalate or change plans sooner. Neither creates manufacturing capacity or guarantees missing material will exist elsewhere.
+1. Exact-part discovery for existing stock.
+2. Buyer-authorized forecast quantities and need dates.
+3. Supplier-shared additional capacity and readiness conditions.
+4. Buyer-reviewed stock purchases, production orders or capacity reservations.
+5. Supplier acceptance and dated quantities, with reservations distinct from completed-part commitments.
 
-For a first pilot, choose one APU/component program and a small set of suppliers. Use the current ERP as the record of orders and inventory. Read a limited, agreed dataset; do not replace it.
+The prototype starts with one fictional buyer and three suppliers, not a complete ERP replacement or an industry-wide network. Existing ERP systems would remain the records of actual inventory and purchasing. The pilot would require agreed data access and a measured improvement to a specific decision.
 
-## Questions to validate with the next interview
+Existing platforms already overlap with discovery, planning, supplier commitments and execution. The next interviews must establish who owns the problem, what data they can share, what decision changes, why current systems do not solve it adequately and who would pay. Do not claim novelty, predictive accuracy or return on investment from this demo.
 
-- Who owns the decision: OEM production planner, buyer, supplier manager, airline or MRO?
-- Which delay information is available before the promise slips? Would suppliers share material readiness, tooling status or aggregated capacity?
-- What action could a planner take earlier, and how much earlier would be useful?
-- Are eligible alternatives actually available when this class of gap occurs?
-- Is an existing system already solving this workflow? Where does it require manual work?
-- Who pays, and for what measurable outcome?
+Supplier acceptance is simulated human input, not a prediction. A reserved slot is not counted as parts supply until a production order is separately approved and accepted. Even confirmed expected supply is not on-hand stock or guaranteed delivery.
 
-## Evidence needed before a prediction claim
-
-Collect timestamped order histories, promise revisions, actual receipts, demand/BOM snapshots and readiness signals captured as known at the time. Evaluate chronologically on held-out orders. Compare against historical lead-time and supplier-promise baselines, then measure date error, bias, interval coverage and planner response. Do not use signals learned after delivery to claim advance forecasting accuracy.
-
-The prototype currently calculates transparent hypothetical scenarios. It does not establish willingness to share data, prediction accuracy, unique functionality, ROI or product-market fit.
+The original marketplace is unchanged. The earlier readiness build is preserved in the backup Git tag and a local ZIP.
