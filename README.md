@@ -1,48 +1,64 @@
 # SkySupply Network — Concept 02
 
-A separate aerospace supply-network prototype connecting parts discovery, future buyer demand, selected supplier capacity/readiness and explicit purchasing decisions. Independent venture concept; all organizations, inventory, parts, prices, dates and transactions are synthetic.
+An independent aerospace supply-network prototype for OEM production planners and airline maintenance buyers. Connect existing-stock discovery, future demand, selected supplier readiness, simulated ERP records and explicit purchasing decisions. All organizations, people, part numbers, inventory, prices, dates, limits and transactions are fictional. Real aircraft/model names provide context only; no fit, affiliation or partnership is implied.
 
-Public link: https://stevedog-krav.github.io/skysupply-readiness-demo/
+Public prototype: https://stevedog-krav.github.io/skysupply-readiness-demo/
 
-Original marketplace, unchanged: https://stevedog-krav.github.io/skysupply-demo/
+Concept 01 remains separate and unchanged: https://stevedog-krav.github.io/skysupply-demo/
 
-## Demo the 1,000 / 750 case
+## Demo in five minutes
 
-1. The sample buyer, Meridian Aero, forecasts 1,000 cast housings by February 1, 2027. Fifty on hand plus 700 existing supplier commitments provide 750 units of coverage. The gap is 250.
-2. Explore the gap. Two distinct listed-stock pools offer 100 and 50 units; a supplier shares a conditional 100-unit additional production pool.
-3. Request stock, review it in Actions and approve as the buyer. Coverage stays unchanged until the named supplier accepts the request in Supplier view.
-4. For the remaining need, propose a production order or capacity reservation. Review readiness estimates and fictional terms. All requests need buyer approval and supplier acceptance.
-5. An accepted reservation holds capacity only. It does not count as parts coverage. In Actions, convert it to a production order, review it again and have the supplier accept it. Its original assumed reservation fee is retained.
-6. Accept all three on-time quantities to reach 1,000 expected coverage. This does not mean those parts are on hand. Accepting a late date leaves the relevant gap open.
-7. Change a forecast quantity or date; choose whether to share it with the named partner. In Supplier view, edit capacity/readiness, sharing choices or listed inventory. Withheld capacity is unknown, not zero.
+1. Start in **OEM · Meridian Aero Systems → Control tower**. Inspect 12 component lines; baseline has six exposed lines. Uncovered part value is quantity gap × invented price, not revenue, losses or savings.
+2. Choose **Run pitch scenario** and load the OEM stress case: +20% demand and +30 calendar days disruption. In Analytics lab, compare baseline/scenario quantities and value. Check early raw-material commitment and recalculate: the forging median moves 21 days earlier, while remaining constraints can still leave a shortage.
+3. Use **Why?** on an open PO to inspect historical lead, readiness allowances and source freshness. **Inspect scored records** shows all 90 synthetic holdouts and three delivery-estimate baselines. These calculated results are not evidence of real predictive accuracy.
+4. Open **Demand & commitments** and explore the housing gap. Fifty usable units plus 700 expected commitments cover 750 of 1,000 required. Request existing stock or a production order; approve as Buyer, then switch to the named Supplier and accept. A reservation alone does not cover demand; convert it to an order and obtain approval/acceptance again. Late supply stays outside the need-date coverage.
+5. Switch planning organization to **Airline · Meridian Air**. Fleet & maintenance → Work orders → **WO-DEMO-27010** shows an APU material gap. Compare a new replacement (75-day invented lead) with a separate loaner pool and a bridge to the existing modeled PO receipt. The baseline bridge is 20 billed days at $1,200/day + $500 fees + $600 shipping = $25,100 expense, plus $15,000 refundable deposit per unit. Edit days in the request form. Buyer approval and separate supplier acceptance are required before job coverage changes. Loaners never increase OEM supply.
+6. Under **Replacement planning**, edit an installed component's fictional calendar/hour/cycle targets and usage. The earliest target, condition buffer, procurement lead and advance buffer determine its reorder date. These are planning assumptions, never maintenance instructions or manufacturer/regulatory life limits.
+7. In **ERP data room**, inspect/search/paginate records, download a table or full JSON package, or download the sample inventory CSV. A selected file is validated and previewed before browser-local application. A simulated sync also requires preview/application. Neither contacts an ERP.
 
-The question-mark button opens the walkthrough. Marketplace search and part/source-type filters work. The top-right request icon opens Actions. An editable service APU rental/buy/bridge calculator remains separate from manufacturing coverage. Scenario changes save locally; JSON export produces a readable snapshot.
+## Dataset and reproducibility
 
-## Boundaries
+The fixed snapshot is **November 9, 2026**, deliberately independent of the real current date. `assets/synthetic-erp.json` and `erp-data.js` contain 556 records:
 
-- No trained AI, live ERP, supplier feeds, secure accounts, real agreements, capacity booking, purchasing, payments or logistics are connected.
-- Buyer forecasts, buyer approvals, supplier acceptance and reservations are distinct states. On-time accepted stock purchases and production orders contribute expected coverage. Reservations do not until converted and accepted as production orders. Opening stock never increases merely because an agreement is accepted.
-- Additional capacity is modeled as a part/date-specific pool net of other allocations. It excludes the existing supplier commitments and listed stock in the sample. Production orders and reservations consume the same additional pool, preventing local double allocation. Pending requests hold scenario quantity, not real stock.
-- Supplier changes can make a pending request infeasible; quantity availability is checked again on buyer approval and supplier acceptance. Accepted quantities cannot be removed through the supplier editing forms. Actual contract amendment/cancellation workflows remain future scope.
-- Readiness estimates add invented allowances to the proposed slot: material unconfirmed +7 days; tooling unready +7; first-pass yield below 95% +3. Sources over 48 hours old relative to the fixed Nov 9, 2026 snapshot are flagged. Suggestions are rule-based matches, not calibrated probabilities or proven delivery predictions.
-- Reservation fees are fictional, nonrefundable, additional to part value and not credited against purchase. Production orders created directly have no separate reservation fee in this example. Real terms would have to be negotiated. Production quotes exclude shipping, taxes and financing.
-- Sharing controls demonstrate the intended workflow only. Both roles and all data exist in the same browser; this is not authentication or security against client-side inspection. Buyer forecasts are shared only with the named partner in the presented interface; explicit requests share their own quantity/date with the selected source.
-- State uses `skysupply-network-v3`, separate from the original marketplace and earlier readiness preview. Saves happen on submitted forms and actions, not every keystroke. There is no device sync, JSON restore or ERP CSV import in this revised concept.
-- Nothing here approves production or installation eligibility, source qualification, traceability, serviceability or airworthiness. Component photos are generated illustrative assets reused from the original prototype, not exact part photography.
-- The service rental calculator assumes $1,200/day, $500 fees, $600 shipping and a $15,000 refundable deposit. Replacement is $250,000 + $600 shipping with 45-day lead time. Bridge rental has 45 billed days (delivery day 2, replacement day 45, two return days). Taxes, damage, extended rental and downtime are excluded.
+- 18 component categories and 6 fictional suppliers.
+- 360 completed PO lines: 270 training receipts and 90 holdouts.
+- 36 open PO schedule lines and 36 warehouse records, split across OEM/airline.
+- 16 aircraft, 48 installed components and 36 maintenance work orders.
 
-## Run locally
+`python3 scripts/generate-erp.py` recreates the dataset with seed 13192026. Public references informed record structure and categories; every value was generated. No private company operating figures or interview transcripts are published.
 
-Serve this folder with any static web server, e.g. `python3 -m http.server 8000`, then open http://localhost:8000. No install/build is required. The frontend uses vanilla JavaScript/CSS and optional Google Fonts with system fallbacks. `network-model.js` contains the independently testable scenario rules. `app.js` renders the interface and handles interactions.
+Run from this folder:
 
-## Keep earlier directions available
+```sh
+node tests/analytics.cjs
+node tests/network.cjs
+python3 -m http.server 8000
+```
 
-Concept 01 is unchanged. The initial Concept 02 readiness dashboard is preserved at Git tag `concept-02-readiness-backup`. A separate local downloadable archive, `SkySupply-earlier-readiness-backup.zip`, also preserves it. The new direction replaces the live Concept 02 page at the same public address.
+Open http://localhost:8000. No install/build required. The frontend uses vanilla JavaScript/CSS and optional Google Fonts with system fallbacks. Tests cover allocation, approval stages, pool limits, leakage prevention, inventory validation and reminders.
 
-## Positioning references
+## Estimation method and limits
 
-Existing products overlap with the broad concept; aerospace workflow usability and supplier participation are hypotheses to validate, not proven differentiation:
+- The analytics estimator fits a median historical lead baseline, adjusted for readiness. Allowances: material unconfirmed +21 days; tooling unready +12; utilization above 80% +0.5 day per point; yield below 94% +10. Scenario disruption is additional. Early material only changes affected OEM estimates. The original network slot estimator is a separate illustrative rule used for conditional capacity proposals, with its own displayed assumptions.
+- Each backtest prediction uses only Train receipts completed by that holdout's order date. Holdout actuals are used only for scoring. The synthetic generator embeds relationships between readiness and delay. The resulting approximately 5.6-day estimator MAE versus 14.7-day promise MAE and 12.2-day historical-median MAE are reproducible demonstrations, not validated industry performance.
+- Receipt windows use empirical training errors with a seven-day minimum. Withheld readiness is excluded and widens the window; stale shared sources also widen it. The on-time score is a smoothed synthetic residual share, explicitly uncalibrated, not a delivery guarantee.
+- The 24-month housing chart is an assumed trajectory: demand growth 1.2% monthly, output growth 0.6% monthly for 12 months, bands ±20% then ±35%. It is not a trained long-range demand forecast or contracted capacity.
+- Usable inventory excludes held/reserved quantities. Airline work orders allocate in due-date order without reusing supply. Confirmed requests apply to the named job only. The two-unit loaner pool is separate from owned inventory and OEM production.
+- Pending network requests hold only scenario pool quantities. Reservations and production orders consume the same additional pool, which is separate from baseline commitments and listed stock. Availability is rechecked at approval and acceptance. No agreement creates on-hand inventory.
+- Rental, procurement and reservation terms are invented. No actual quote, eligibility, documentation, serviceability, installation approval, airworthiness, purchasing, payment or logistics is supplied.
+- There is no trained AI service, real ERP feed, secure login, company integration, live stock or enforceable capacity booking. Both preview roles and data exist in one browser; sharing controls demonstrate intended behavior, not security.
+- Submitted changes save locally in `skysupply-analytics-v1` and `skysupply-network-v3`. No device sync or JSON restore exists. Reset analytics clears imports, component edits and airline requests but preserves OEM network agreements. Export first if needed. CSV import only accepts known organization/part pairs, valid nonfuture dates, integer nonnegative quantities and held + reserved ≤ on-hand. Files stay in the browser.
+- Component images are illustrative generated assets, not exact part photography.
 
-- https://www.ilsmart.com/
-- https://o9solutions.com/solutions/supplier-collaboration
-- https://www.sap.com/uk/products/business-network/planning-collaboration.html
+## Provenance and positioning
+
+Public structure/context references are linked in ERP data room:
+
+- [SAP PO schedule lines](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/8308e6d301d54584a33cd04a9861bc52/6e52f71dfb5a481b810ce0697708baf2.html)
+- [SAP goods receipts](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/9905622a5c1f49ba84e9076fc83a9c2c/e69ac7536e8e2a4be10000000a174cb4.html)
+- [Honeywell APU context](https://www.honeywellaerospace.com/us/en/products-and-services/products/power-and-propulsion/auxiliary-power-units)
+- [IATA supply-chain context](https://www.iata.org/en/programs/ops-infra/techops/aviation-supply-chain/)
+
+Existing products overlap with discovery, forecasting and supplier collaboration: [ILS](https://www.ilsmart.com/), [o9](https://o9solutions.com/solutions/supplier-collaboration), [SAP](https://www.sap.com/uk/products/business-network/planning-collaboration.html). Novelty, willingness to share data, buyer value and forecast accuracy require validation with an actual pilot.
+
+Earlier Concept 02 versions remain in tags `concept-02-readiness-backup` and `concept-02-network-backup`. Concept 01 is not modified by this repository.

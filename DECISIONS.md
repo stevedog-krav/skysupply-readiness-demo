@@ -1,19 +1,22 @@
-# Revised Concept 02: a demand-to-commitment network
+# Concept 02: OEM and airline demand-to-decision network
 
-The central problem is shared inventory risk: a supplier may hesitate to commit material before a buyer commits demand, while a buyer may hesitate to hold excess parts. Earlier information can help, but a nonbinding forecast alone does not transfer that risk.
+The core hypothesis is that earlier demand commitments and selected supplier readiness can improve decisions before a shortage occurs. A nonbinding forecast alone does not transfer inventory risk or create factory output.
 
-SkySupply's proposed workflow connects:
+Concept 01 demonstrates sourcing and maintenance commerce: marketplace discovery, orders, rental/loaner comparisons, reminders and planning tools. Concept 02 expands the center of gravity to future demand, supplier readiness, ERP evidence and human-approved purchasing/production decisions. Existing marketplace and rental functions do not disappear, but they support the coordinated planning workflow.
 
-1. Exact-part discovery for existing stock.
-2. Buyer-authorized forecast quantities and need dates.
-3. Supplier-shared additional capacity and readiness conditions.
-4. Buyer-reviewed stock purchases, production orders or capacity reservations.
-5. Supplier acceptance and dated quantities, with reservations distinct from completed-part commitments.
+The two planning profiles share the delivery estimator and source-data tools, while retaining different needs:
 
-The prototype starts with one fictional buyer and three suppliers, not a complete ERP replacement or an industry-wide network. Existing ERP systems would remain the records of actual inventory and purchasing. The pilot would require agreed data access and a measured improvement to a specific decision.
+- OEM: component demand, production timing, material/tooling/capacity signals, stock discovery, production orders and capacity reservations.
+- Airline: maintenance work orders, installed-component planning targets, usable stock allocation, replacement procurement and job-specific service loaners.
 
-Existing platforms already overlap with discovery, planning, supplier commitments and execution. The next interviews must establish who owns the problem, what data they can share, what decision changes, why current systems do not solve it adequately and who would pay. Do not claim novelty, predictive accuracy or return on investment from this demo.
+Existing ERP/MRO systems would remain systems of record. A real product would consume only authorized data, return approved workflow updates, and require server-enforced access controls, integration reconciliation and validation. This prototype demonstrates none of those production integrations or security guarantees.
 
-Supplier acceptance is simulated human input, not a prediction. A reserved slot is not counted as parts supply until a production order is separately approved and accepted. Even confirmed expected supply is not on-hand stock or guaranteed delivery.
+The 556 generated records make calculations inspectable. The historical estimator and synthetic backtest explain the proposed analytical behavior; they do not establish real predictive accuracy. The 24-month projection is an explicit what-if assumption. Fabricated values are never presented as company quotes, real availability or manufacturer life limits.
 
-The original marketplace is unchanged. The earlier readiness build is preserved in the backup Git tag and a local ZIP.
+Buyer approval, supplier acceptance, capacity reservation, production order, expected receipt and usable on-hand stock remain distinct. Loaner supply never closes OEM manufacturing gaps. People decide whether to act; the system does not automatically order.
+
+Team discovery themes inform the scenarios: uncertain material purchasing before confirmed demand, constrained tooling/capacity, rework, longer planning horizons and selective information sharing. Private interview figures and transcripts are excluded from the public source/data.
+
+A useful pilot would start with one buyer, a few willing suppliers and a defined part family. Compare forecast errors against simple baselines on genuinely held-out future receipts, track shortage decisions and material wait time, and test whether partners will share the required signals. Existing industry tools overlap; the prototype supports a hypothesis, not a defensible claim that the industry lacks these capabilities.
+
+Concept 01 remains untouched. Git backup tags preserve both earlier Concept 02 directions.
