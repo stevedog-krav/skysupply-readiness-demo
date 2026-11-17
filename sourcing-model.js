@@ -1,7 +1,7 @@
 /* Deterministic, synthetic sourcing scenarios. No external searches or RFQs. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.SkySourcing=api})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const KEY='skysupply-interview-v1',BASE='2026-11-09';
+const KEY='skysupply-interview-v1',BASE='2026-11-20';
 const add=(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
 const modes={urgent:{label:'AOG / urgent',min:0,max:7,days:2},short:{label:'Short term · 1–3 months',min:0,max:90,days:60},long:{label:'Long term · 6–12+ months',min:180,max:730,days:270}};
 function initial(){return {mode:'short',partId:'housing',query:'',qty:1,destination:'PHX',due:add(BASE,60),supplier:'all',channel:'all',condition:'all',delivery:'all',selected:[],rfqs:[],programs:{},roi:{requests:40,before:75,after:25,hourly:55,subscription:1200,events:.25,days:1,dayCost:15000},supplierPlan:'participation'}}

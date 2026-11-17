@@ -1,6 +1,6 @@
 (function(root,factory){const m=factory();if(typeof module==='object'&&module.exports)module.exports=m;else root.SkyAnalytics=m})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const BASE='2026-11-09',KEY='skysupply-analytics-v1',DAY=86400000;
+const BASE='2026-11-20',KEY='skysupply-analytics-v1',DAY=86400000;
 const add=(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+Math.round(n)*DAY).toISOString().slice(0,10),days=(a,b)=>Math.round((Date.parse(a+'T12:00:00Z')-Date.parse(b+'T12:00:00Z'))/DAY),mean=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:0,median=a=>{const b=[...a].sort((a,b)=>a-b);return b.length?b[Math.floor(b.length/2)]:0},quantile=(a,q)=>{const b=[...a].sort((a,b)=>a-b);return b[Math.min(b.length-1,Math.floor(b.length*q))]||7};
 function initial(){return {org:'OEM',uplift:0,delay:0,earlyMaterial:false,utilization:1,buffer:21,poOverrides:{},inventoryOverrides:{},actions:[],syncCount:0,view:'Control tower'}}
 function penalty(r){return (r.material?0:21)+(r.tooling?0:12)+Math.max(0,r.utilization-80)*.5+(r.yield<94?10:0)}

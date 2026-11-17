@@ -18,7 +18,7 @@ Concept 01 remains separate and unchanged: https://stevedog-krav.github.io/skysu
 
 ## Dataset and reproducibility
 
-The fixed snapshot is **November 9, 2026**, deliberately independent of the real current date. `assets/synthetic-erp.json` and `erp-data.js` contain 556 records:
+The fixed snapshot is **November 20, 2026**, deliberately independent of the real current date. `assets/synthetic-erp.json` and `erp-data.js` contain 556 records:
 
 - 18 component categories and 6 fictional suppliers.
 - 360 completed PO lines: 270 training receipts and 90 holdouts.
@@ -33,6 +33,7 @@ Run from this folder:
 node tests/analytics.cjs
 node tests/network.cjs
 node tests/sourcing.cjs
+node tests/calendar.cjs
 python3 -m http.server 8000
 ```
 
@@ -108,3 +109,7 @@ The interface now uses finished-product wording and a compact workspace footer. 
 - Styling includes clearer type, consistent rounded cards/buttons, sticky desktop search/requests, hover/pressed states, reduced-motion support and phone/laptop layouts.
 
 Public workflow references used to refine terminology and controls are recorded in `RESEARCH.md`. Source data remains synthetic and the application remains browser-local, without authentication or transactional integrations.
+
+## Pitch calendar and planning controls
+
+The November 20 pitch snapshot keeps upcoming work, procurement and replacement targets in the future. Historical receipts and installation dates remain historical. A compact header selector switches between urgent, short-term and long-term planning while retaining the aircraft hero image in both buyer workspaces. Existing saved scenarios migrate their calendar dates once; request amounts, identifiers and audit timestamps are preserved.

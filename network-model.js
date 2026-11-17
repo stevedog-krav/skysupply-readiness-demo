@@ -1,17 +1,17 @@
 (function(root,factory){const m=factory();if(typeof module==='object'&&module.exports)module.exports=m;else root.SkyNetwork=m})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const BASE='2026-11-09',KEY='skysupply-network-v3';
+const BASE='2026-11-20',KEY='skysupply-network-v3';
 const add=(date,n)=>new Date(Date.parse(date+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
 function initial(){return {version:3,view:'Overview',role:'Buyer',supplier:'s1',actions:[],events:[],parts:[
-{id:'housing',code:'SS-CST-131',name:'APU cast housing',art:'disk',demand:1000,stock:50,committed:700,commitDate:'2027-01-25',due:'2027-02-01',supplier:'s1',share:true},
-{id:'bearing',code:'SS-BRG-131',name:'Precision bearing',art:'bearing',demand:2000,stock:220,committed:1680,commitDate:'2027-01-20',due:'2027-02-01',supplier:'s2',share:true},
-{id:'bolt',code:'SS-BOLT-131',name:'Drilled-head fastener',art:'fastener',demand:12000,stock:1800,committed:10500,commitDate:'2027-01-15',due:'2027-02-01',supplier:'s3',share:true},
-{id:'liner',code:'SS-LNR-131',name:'Combustor liner',art:'liner',demand:1000,stock:80,committed:800,commitDate:'2027-01-28',due:'2027-02-01',supplier:'s1',share:false}],
+{id:'housing',code:'SS-CST-131',name:'APU cast housing',art:'disk',demand:1000,stock:50,committed:700,commitDate:'2027-02-05',due:'2027-02-12',supplier:'s1',share:true},
+{id:'bearing',code:'SS-BRG-131',name:'Precision bearing',art:'bearing',demand:2000,stock:220,committed:1680,commitDate:'2027-01-31',due:'2027-02-12',supplier:'s2',share:true},
+{id:'bolt',code:'SS-BOLT-131',name:'Drilled-head fastener',art:'fastener',demand:12000,stock:1800,committed:10500,commitDate:'2027-01-26',due:'2027-02-12',supplier:'s3',share:true},
+{id:'liner',code:'SS-LNR-131',name:'Combustor liner',art:'liner',demand:1000,stock:80,committed:800,commitDate:'2027-02-08',due:'2027-02-12',supplier:'s1',share:false}],
 capacity:[
-{id:'c1',partId:'housing',supplier:'s1',additional:100,ready:'2027-01-25',material:false,tooling:true,yield:94,share:true,updated:BASE,price:4500,fee:25000,condition:'Material purchase by Nov 20; buyer commitment required.'},
-{id:'c2',partId:'bearing',supplier:'s2',additional:150,ready:'2027-01-20',material:true,tooling:true,yield:98,share:true,updated:BASE,price:1400,fee:5000,condition:'Production slot held only after supplier acceptance.'},
-{id:'c3',partId:'bolt',supplier:'s3',additional:1800,ready:'2027-02-15',material:true,tooling:true,yield:99,share:true,updated:'2026-11-04',price:32,fee:2000,condition:'Slot is after the current need-by date.'},
-{id:'c4',partId:'liner',supplier:'s1',additional:80,ready:'2027-01-29',material:false,tooling:false,yield:91,share:false,updated:BASE,price:21000,fee:20000,condition:'Tooling qualification and material must be confirmed.'}],
+{id:'c1',partId:'housing',supplier:'s1',additional:100,ready:'2027-02-05',material:false,tooling:true,yield:94,share:true,updated:BASE,price:4500,fee:25000,condition:'Material purchase by Nov 20; buyer commitment required.'},
+{id:'c2',partId:'bearing',supplier:'s2',additional:150,ready:'2027-01-31',material:true,tooling:true,yield:98,share:true,updated:BASE,price:1400,fee:5000,condition:'Production slot held only after supplier acceptance.'},
+{id:'c3',partId:'bolt',supplier:'s3',additional:1800,ready:'2027-02-26',material:true,tooling:true,yield:99,share:true,updated:'2026-11-15',price:32,fee:2000,condition:'Slot is after the current need-by date.'},
+{id:'c4',partId:'liner',supplier:'s1',additional:80,ready:'2027-02-09',material:false,tooling:false,yield:91,share:false,updated:BASE,price:21000,fee:20000,condition:'Tooling qualification and material must be confirmed.'}],
 offers:[
 {id:'o1',partId:'housing',supplier:'s3',name:'Desert Aero Distribution',qty:100,price:6800,days:5,location:'Phoenix, AZ',channel:'Distributor',condition:'New'},
 {id:'o2',partId:'housing',supplier:'s2',name:'Northline Component Services',qty:50,price:7100,days:7,location:'Dallas, TX',channel:'Independent shop',condition:'New'},
