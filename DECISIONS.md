@@ -20,3 +20,6 @@ Team discovery themes inform the scenarios: uncertain material purchasing before
 A useful pilot would start with one buyer, a few willing suppliers and a defined part family. Compare forecast errors against simple baselines on genuinely held-out future receipts, track shortage decisions and material wait time, and test whether partners will share the required signals. Existing industry tools overlap; the prototype supports a hypothesis, not a defensible claim that the industry lacks these capabilities.
 
 Concept 01 remains untouched. Git backup tags preserve both earlier Concept 02 directions.
+
+
+The interview iteration prioritizes turning a shortage into a reviewed sourcing decision. Supplier search uses transparent source-channel previews instead of implying unrestricted access to proprietary databases. RFQ response generation is explicit and simulated. Selected quotes reuse the existing approval/coverage rules, rather than creating a second inventory ledger. Shipping progress stays separate from warehouse receipts. The maintenance source register is intentionally unverified until a real authorized program can be supplied. Value calculations separate measurable purchasing effort from speculative downtime benefits.

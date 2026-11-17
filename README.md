@@ -9,7 +9,7 @@ Concept 01 remains separate and unchanged: https://stevedog-krav.github.io/skysu
 ## Demo in five minutes
 
 1. Start in **OEM · Meridian Aero Systems → Control tower**. Inspect 12 component lines; baseline has six exposed lines. Uncovered part value is quantity gap × invented price, not revenue, losses or savings.
-2. Choose **Run pitch scenario** and load the OEM stress case: +20% demand and +30 calendar days disruption. In Analytics lab, compare baseline/scenario quantities and value. Check early raw-material commitment and recalculate: the forging median moves 21 days earlier, while remaining constraints can still leave a shortage.
+2. Choose **Run pitch scenario** and load the OEM stress case: +20% demand and +30 calendar days disruption. In Metrics & Forecasting, compare baseline/scenario quantities and value. Check early raw-material commitment and recalculate: the forging median moves 21 days earlier, while remaining constraints can still leave a shortage.
 3. Use **Why?** on an open PO to inspect historical lead, readiness allowances and source freshness. **Inspect scored records** shows all 90 synthetic holdouts and three delivery-estimate baselines. These calculated results are not evidence of real predictive accuracy.
 4. Open **Demand & commitments** and explore the housing gap. Fifty usable units plus 700 expected commitments cover 750 of 1,000 required. Request existing stock or a production order; approve as Buyer, then switch to the named Supplier and accept. A reservation alone does not cover demand; convert it to an order and obtain approval/acceptance again. Late supply stays outside the need-date coverage.
 5. Switch planning organization to **Airline · Meridian Air**. Fleet & maintenance → Work orders → **WO-DEMO-27010** shows an APU material gap. Compare a new replacement (75-day invented lead) with a separate loaner pool and a bridge to the existing modeled PO receipt. The baseline bridge is 20 billed days at $1,200/day + $500 fees + $600 shipping = $25,100 expense, plus $15,000 refundable deposit per unit. Edit days in the request form. Buyer approval and separate supplier acceptance are required before job coverage changes. Loaners never increase OEM supply.
@@ -32,6 +32,7 @@ Run from this folder:
 ```sh
 node tests/analytics.cjs
 node tests/network.cjs
+node tests/sourcing.cjs
 python3 -m http.server 8000
 ```
 
@@ -62,3 +63,32 @@ Public structure/context references are linked in ERP data room:
 Existing products overlap with discovery, forecasting and supplier collaboration: [ILS](https://www.ilsmart.com/), [o9](https://o9solutions.com/solutions/supplier-collaboration), [SAP](https://www.sap.com/uk/products/business-network/planning-collaboration.html). Novelty, willingness to share data, buyer value and forecast accuracy require validation with an actual pilot.
 
 Earlier Concept 02 versions remain in tags `concept-02-readiness-backup` and `concept-02-network-backup`. Concept 01 is not modified by this repository.
+
+
+## November 12 interview feedback iteration
+
+Implemented as a simulated end-to-end sourcing workflow, preserving the separate Concept 01 site:
+
+- **Planning windows:** Control tower now has urgent (dated needs within 7 days), short term (within 90 days), and long range (6–24 months). The same selection supplies a default RFQ need date. Other pages retain their explicitly labeled record scope. Missing dated production needs are shown as absent, not fabricated. Airline long range uses component targets; OEM long range remains the assumed housing trajectory.
+- **Metrics & Forecasting:** renamed the Analytics lab, including navigation and walkthrough references. Existing ERP-derived shortage and delivery estimators remain intact.
+- **Supplier search:** replaces the Marketplace navigation entry with 72 deterministic fictional listings (four sources per component). Filter component, supplier, source channel, condition, location/name search and earliest handling plus transit. Multiple sources can be selected for one exact component. Quote-required, stale listings and missing documentation are visible. The assistant recognizes a constrained set of part identifiers/names, quantity patterns and urgency; it is not an LLM or live internet search.
+- **RFQs:** save a draft, review recipients, release a local simulation, then explicitly simulate responses. Compare complete, partial and documentation-pending quotes. Only a complete quote with sample documentation can create a purchase-review request. No email or RFQ is sent externally. Real multi-source split awards and negotiations remain future scope.
+- **Quotes & shipping:** compare scheduled/standard, expedited and dedicated-courier scenarios. Heavy-component scenarios use freight terminology. Destination and quantity affect fictional costs; supplier handling is added to transit. Delivered estimates include parts and shipping but exclude tax/duties. No actual UPS or courier service is connected or quoted.
+- **Purchase handoff:** selected quotes create requests in the original Actions workflow. OEM purchases require buyer approval and supplier acceptance before contributing expected supply. Airline purchases link to a specific matching work order and require the same approvals; existing loaners remain separate. Quote selection and logistics statuses never increase owned stock. Active requests reserve listing quantities; duplicate conversion of one RFQ is blocked.
+- **Logistics updates:** after supplier acceptance, explicitly simulate dispatch readiness, in-transit and delivered states. No carrier is contacted and no warehouse receipt is automatically posted. The accepted supplier date remains authoritative for modeled expected coverage.
+- **Program references:** Fleet & maintenance has editable document/revision/reviewer references for the two aircraft contexts. Missing references are flagged; user-entered references remain unverified. They do not import a real maintenance program, change existing targets or establish approval/eligibility.
+- **Value calculator:** editable sourcing volumes, task times, loaded labor rate and subscription assumptions show hours, labor value, net labor value and break-even requests. A separate speculative delay-exposure calculation is excluded from labor ROI. No customer savings or subscription willingness-to-pay is claimed.
+- **Supplier incentive:** supplier view explains a proposed free basic listing and optional selected-data participation discount. This is a business-model hypothesis, not a paid/free enrollment or agreed offer.
+- **Persistence/export:** `skysupply-interview-v1` saves RFQs, planning window, reference entries and calculator assumptions. Full ERP demo export includes this state and the generated listing set. The existing analytics reset does not clear sourcing/RFQ records or network agreements; those workflows are separate. Export is readable, with no JSON restore. No secure authentication is implemented.
+
+### Quick walkthrough of the new flow
+
+1. Select OEM, open Supplier search, and choose **Source 100 housings**.
+2. Select all four sources and **Prepare RFQ**. Save the draft, review/release it and **Simulate supplier responses**.
+3. Compare incomplete/partial quotes against complete quotes. Change shipping service to compare arrival and total cost. Review a complete quote and create the purchase-review request.
+4. In Actions, approve as buyer; open the selected supplier response and accept the date/quantity. Control tower coverage changes only after acceptance. Quotes & shipping links back to the request and now permits simulated logistics updates.
+5. Select Airline. From a work order, use **Compare suppliers for this component**, select a source, and associate the RFQ with the matching work order. Selecting a job copies its need date/base into the draft. A timely accepted purchase can cover that job; no OEM supply is created.
+6. Review Fleet & maintenance program references and edit a sample reference. Inspect a component target to see that the reference remains unverified and targets stay illustrative.
+7. Open Value calculator and change request volume/time to show labor-only value separately from delay exposure.
+
+Source files: `sourcing-model.js` contains deterministic listing, RFQ, shipping, scope and ROI rules; `sourcing-ui.js` connects these to the existing application. No dependencies were added. The preceding version is preserved by tag `concept-02-before-interview-feedback`.
