@@ -3,10 +3,10 @@
 const BASE='2026-11-09',KEY='skysupply-network-v3';
 const add=(date,n)=>new Date(Date.parse(date+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
 function initial(){return {version:3,view:'Overview',role:'Buyer',supplier:'s1',actions:[],events:[],parts:[
-{id:'housing',code:'DEMO-CST-131',name:'APU cast housing',art:'disk',demand:1000,stock:50,committed:700,commitDate:'2027-01-25',due:'2027-02-01',supplier:'s1',share:true},
-{id:'bearing',code:'DEMO-BRG-131',name:'Precision bearing',art:'bearing',demand:2000,stock:220,committed:1680,commitDate:'2027-01-20',due:'2027-02-01',supplier:'s2',share:true},
-{id:'bolt',code:'DEMO-BOLT-131',name:'Drilled-head fastener',art:'fastener',demand:12000,stock:1800,committed:10500,commitDate:'2027-01-15',due:'2027-02-01',supplier:'s3',share:true},
-{id:'liner',code:'DEMO-LNR-131',name:'Combustor liner',art:'liner',demand:1000,stock:80,committed:800,commitDate:'2027-01-28',due:'2027-02-01',supplier:'s1',share:false}],
+{id:'housing',code:'SS-CST-131',name:'APU cast housing',art:'disk',demand:1000,stock:50,committed:700,commitDate:'2027-01-25',due:'2027-02-01',supplier:'s1',share:true},
+{id:'bearing',code:'SS-BRG-131',name:'Precision bearing',art:'bearing',demand:2000,stock:220,committed:1680,commitDate:'2027-01-20',due:'2027-02-01',supplier:'s2',share:true},
+{id:'bolt',code:'SS-BOLT-131',name:'Drilled-head fastener',art:'fastener',demand:12000,stock:1800,committed:10500,commitDate:'2027-01-15',due:'2027-02-01',supplier:'s3',share:true},
+{id:'liner',code:'SS-LNR-131',name:'Combustor liner',art:'liner',demand:1000,stock:80,committed:800,commitDate:'2027-01-28',due:'2027-02-01',supplier:'s1',share:false}],
 capacity:[
 {id:'c1',partId:'housing',supplier:'s1',additional:100,ready:'2027-01-25',material:false,tooling:true,yield:94,share:true,updated:BASE,price:4500,fee:25000,condition:'Material purchase by Nov 20; buyer commitment required.'},
 {id:'c2',partId:'bearing',supplier:'s2',additional:150,ready:'2027-01-20',material:true,tooling:true,yield:98,share:true,updated:BASE,price:1400,fee:5000,condition:'Production slot held only after supplier acceptance.'},

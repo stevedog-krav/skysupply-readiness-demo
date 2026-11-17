@@ -9,7 +9,7 @@
   "catalog": [
     {
       "id": "housing",
-      "code": "DEMO-CST-131",
+      "code": "SS-CST-131",
       "name": "APU cast housing",
       "category": "Casting",
       "supplier": "s1",
@@ -20,7 +20,7 @@
     },
     {
       "id": "bearing",
-      "code": "DEMO-BRG-131",
+      "code": "SS-BRG-131",
       "name": "Precision bearing",
       "category": "Bearing",
       "supplier": "s2",
@@ -31,7 +31,7 @@
     },
     {
       "id": "bolt",
-      "code": "DEMO-BOLT-131",
+      "code": "SS-BOLT-131",
       "name": "Drilled-head fastener",
       "category": "Hardware",
       "supplier": "s3",
@@ -42,7 +42,7 @@
     },
     {
       "id": "liner",
-      "code": "DEMO-LNR-131",
+      "code": "SS-LNR-131",
       "name": "Combustor liner",
       "category": "Hot-section hardware",
       "supplier": "s1",
@@ -53,7 +53,7 @@
     },
     {
       "id": "forging",
-      "code": "DEMO-FRG-210",
+      "code": "SS-FRG-210",
       "name": "Turbine disk forging",
       "category": "Forging",
       "supplier": "s4",
@@ -64,7 +64,7 @@
     },
     {
       "id": "shaft",
-      "code": "DEMO-SFT-052",
+      "code": "SS-SFT-052",
       "name": "Accessory drive shaft",
       "category": "Machined component",
       "supplier": "s4",
@@ -75,7 +75,7 @@
     },
     {
       "id": "seal",
-      "code": "DEMO-SEL-118",
+      "code": "SS-SEL-118",
       "name": "Accessory seal kit",
       "category": "Expendable",
       "supplier": "s3",
@@ -86,7 +86,7 @@
     },
     {
       "id": "fuel",
-      "code": "DEMO-FCU-310",
+      "code": "SS-FCU-310",
       "name": "Fuel control unit",
       "category": "Rotable",
       "supplier": "s5",
@@ -97,7 +97,7 @@
     },
     {
       "id": "starter",
-      "code": "DEMO-STG-027",
+      "code": "SS-STG-027",
       "name": "Starter generator",
       "category": "Rotable",
       "supplier": "s5",
@@ -108,7 +108,7 @@
     },
     {
       "id": "igniter",
-      "code": "DEMO-IGN-041",
+      "code": "SS-IGN-041",
       "name": "Ignition exciter",
       "category": "Electrical",
       "supplier": "s2",
@@ -119,7 +119,7 @@
     },
     {
       "id": "valve",
-      "code": "DEMO-VLV-052",
+      "code": "SS-VLV-052",
       "name": "Pneumatic control valve",
       "category": "Pneumatic",
       "supplier": "s6",
@@ -130,7 +130,7 @@
     },
     {
       "id": "sensor",
-      "code": "DEMO-EGT-073",
+      "code": "SS-EGT-073",
       "name": "Exhaust temperature sensor",
       "category": "Sensor",
       "supplier": "s2",
@@ -141,7 +141,7 @@
     },
     {
       "id": "apu",
-      "code": "DEMO-APU-901",
+      "code": "SS-APU-901",
       "name": "Service APU assembly",
       "category": "Complete APU",
       "supplier": "s5",
@@ -152,7 +152,7 @@
     },
     {
       "id": "filter",
-      "code": "DEMO-FLT-208",
+      "code": "SS-FLT-208",
       "name": "Oil filter element",
       "category": "Expendable",
       "supplier": "s3",
@@ -163,7 +163,7 @@
     },
     {
       "id": "brake",
-      "code": "DEMO-BRK-320",
+      "code": "SS-BRK-320",
       "name": "Wheel brake assembly",
       "category": "Landing gear",
       "supplier": "s6",
@@ -174,7 +174,7 @@
     },
     {
       "id": "tire",
-      "code": "DEMO-TIR-738",
+      "code": "SS-TIR-738",
       "name": "Main-wheel tire",
       "category": "Consumable",
       "supplier": "s3",
@@ -185,7 +185,7 @@
     },
     {
       "id": "actuator",
-      "code": "DEMO-ACT-017",
+      "code": "SS-ACT-017",
       "name": "Flight-control actuator",
       "category": "Rotable",
       "supplier": "s6",
@@ -196,7 +196,7 @@
     },
     {
       "id": "battery",
-      "code": "DEMO-BAT-024",
+      "code": "SS-BAT-024",
       "name": "Aircraft battery",
       "category": "Electrical",
       "supplier": "s2",

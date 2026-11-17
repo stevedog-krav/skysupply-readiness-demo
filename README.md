@@ -92,3 +92,19 @@ Implemented as a simulated end-to-end sourcing workflow, preserving the separate
 7. Open Value calculator and change request volume/time to show labor-only value separately from delay exposure.
 
 Source files: `sourcing-model.js` contains deterministic listing, RFQ, shipping, scope and ROI rules; `sourcing-ui.js` connects these to the existing application. No dependencies were added. The preceding version is preserved by tag `concept-02-before-interview-feedback`.
+
+## Presentation-ready product pass
+
+The interface now uses finished-product wording and a compact workspace footer. Concept numbering, links to earlier marketplace directions, repeated simulation banners and demo button labels are removed from the rendered application. The footer still identifies sample data and the absence of live transactions; commercial inventory, quotes, partnerships or integrations must not be inferred from this presentation.
+
+- Navigation follows the work: planning → sourcing → quotes → actions → value → source records. The duplicate airline demand destination is hidden because its content is already in Fleet & maintenance. OEM users see an explicitly labeled airline-maintenance workspace link.
+- Guide opens separate seven-stage OEM and airline walkthroughs. A thin persistent banner explains each stage. Quote stages explicitly create a labeled comparison example, never a purchase request automatically. Exiting the guide leaves work intact.
+- The guide includes a confirmed full-workspace reset and a full JSON backup download. Reset covers all three state stores while keeping Concept 01 separate. Export first; JSON restore remains unavailable.
+- Planning-window controls appear only on Control tower, where they actually change the view. Other pages keep their stated record scope.
+- Part numbers use a consistent private-label `SS-` prefix. These are not real OEM identifiers or evidence of applicability. Legacy `DEMO-` identifiers remain accepted by supplier search. Stable internal work-order identifiers are retained while their on-screen labels omit the legacy prefix.
+- RFQs now record a required condition and documentation requirement. Condition-mismatched, incomplete or undocumented quotes cannot become a purchase request. Once converted, the selected service and freight estimate are retained and the quote's transport controls are locked.
+- Transport comparisons include indicative UPS, FedEx and specialist options. Amazon Shipping appears only for standard parcel scenarios. Provider names identify the modeled service category, not a partnership, actual availability or carrier-issued price. Heavy-component packaging and booking eligibility still require review. The total combines part value and estimated shipping, excluding taxes/duties.
+- Shipment progress has explicit milestones, still separate from a posted inventory receipt.
+- Styling includes clearer type, consistent rounded cards/buttons, sticky desktop search/requests, hover/pressed states, reduced-motion support and phone/laptop layouts.
+
+Public workflow references used to refine terminology and controls are recorded in `RESEARCH.md`. Source data remains synthetic and the application remains browser-local, without authentication or transactional integrations.
