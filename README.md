@@ -1,4 +1,4 @@
-# SkySupply Network — Concept 02
+# Skyligned Network — Concept 02
 
 An independent aerospace supply-network prototype for OEM production planners and airline maintenance buyers. Connect existing-stock discovery, future demand, selected supplier readiness, simulated ERP records and explicit purchasing decisions. All organizations, people, part numbers, inventory, prices, dates, limits and transactions are fictional. Real aircraft/model names provide context only; no fit, affiliation or partnership is implied.
 
